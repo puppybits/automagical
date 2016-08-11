@@ -1,8 +1,8 @@
 {
   "license": "MIT",
-  "name": "auto-magical",
+  "name": "automagical",
   "version": "1.0.0",
-  "description": "one-click project setup",
+  "description": "(alpha build) Making Webpack as easy as Nodemon",
   "main": "src/index.js",
   "scripts": {
     "start": "npm run watch",
@@ -50,12 +50,12 @@
     "boilerplate",
     "starter"
   ],
-  "homepage": "https://github.com/puppybits/auto-magical",
+  "homepage": "https://github.com/puppybits/automagical",
   "repository": {
     "type": "git",
-    "url": "https://github.com/puppybits/auto-magical.git"
+    "url": "https://github.com/puppybits/automagical.git"
   },
   "bugs": {
-    "url": "https://github.com/puppybits/auto-magical/issues"
+    "url": "https://github.com/puppybits/automagical/issues"
   }
 }

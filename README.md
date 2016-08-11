@@ -11,7 +11,7 @@ reloading all-in-one.
 
 ## Quick start
 ```
-npm install auto-magical -g
+npm install automagical -g
 ```
 
 Create a barebones, new project (or if you like you're
@@ -25,7 +25,7 @@ Start a HMR server in your working directory
 auto
 ```
 
-## New Project
+## New Project (coming soon)
 Create a new react project. This will create an up , will add mobile icons as wellto date
 scaffold that can fully run by itself.  , any inline comments that are a file path will get and replace the comment with the file
 ```
@@ -37,7 +37,7 @@ Install other packages when the package starts.
 auto react --install redux
 ```
 
-By default auto-magical will upgrade every library to the
+By default automagical will upgrade every library to the
 highest version number (betas are opt-in only). If something
 doesn't work reinstall with the `--safe` flag to use the specific
 library version in the original package.json.
