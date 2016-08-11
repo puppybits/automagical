@@ -14,7 +14,7 @@ module.exports = ({
   webpackconfig=false,
   deploy=false,
   ssr=false,
-  debug=false,
+  debug=true,
   cwd="../automagical-react",
   packagejson={},
 }) => {
@@ -39,7 +39,7 @@ module.exports = ({
     packagejson: packagejson,
     cwd:cwd,
   }
-  
+
   const baseConfig = {
     entry: {
       app: [path.resolve(cwd, 'src', 'index.js')], // app.js will be for server-side-
@@ -65,14 +65,17 @@ module.exports = ({
         /* convert all source files */
         test: /\.(js|jsx)$/,
         include: [/src/,/bower_components/],
-        loader: '/Volumes/more___/--auto-magical/automagical/node_modules/babel-loader',
+        loader: path.resolve(__dirname, '../../node_modules/babel-loader'),
         query: {
-              presets: [
-                  require.resolve('/Volumes/more___/--auto-magical/automagical/node_modules/babel-preset-es2015-webpack'),
-                  require.resolve('/Volumes/more___/--auto-magical/automagical/node_modules/babel-preset-react'),
-                  require.resolve('/Volumes/more___/--auto-magical/automagical/node_modules/babel-preset-stage-0')
-              ]
-          }
+          plugins: [
+            "transform-runtime",
+          ],
+          presets: [
+            path.resolve(__dirname, '../../node_modules/babel-preset-es2015-webpack2'),
+            path.resolve(__dirname, '../../node_modules/babel-preset-react'),
+            path.resolve(__dirname, '../../node_modules/babel-preset-stage-0'),
+          ],
+        }
       }, {
         test: /\.(png|jpg)$/,
         loader: 'url?limit=8192',
@@ -117,7 +120,6 @@ module.exports = ({
     },
 
     externals: [],
-    plugins: [],
     plugins: [
       /* "Compiler" switches and embeding versioning. Dead code stripping will remove. */
       new NpmInstallPlugin(),

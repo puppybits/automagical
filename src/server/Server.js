@@ -12,7 +12,7 @@ var serveIndex = require("serve-index");
 var historyApiFallback = require("connect-history-api-fallback");
 
 function Server(compiler, options) {
-	// Default options
+  // Default options
 	if(!options) options = {};
 
 	if(options.lazy && !options.filename) {
@@ -194,7 +194,7 @@ function Server(compiler, options) {
 		},
 
 		contentBase: function() {
-			if(options.contentBase !== false) {
+      if(options.contentBase !== false) {
 				var contentBase = options.contentBase || process.cwd();
 
 				if(Array.isArray(contentBase)) {
@@ -316,7 +316,7 @@ Server.prototype.listen = function() {
 		// Limit useless logs
 		log: function(severity, line) {
 			if(severity === "error") {
-				console.log(line);
+				console.log("listen error",severity, line);
 			}
 		}
 	});
