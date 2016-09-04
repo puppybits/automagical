@@ -2,16 +2,12 @@
 'use strict'
 const fs = require('fs')
 const path = require('path')
-// var cli = require('../lib/cli')
+
 const automagical = require(path.join(__dirname, '..', 'src', 'index.js'))
 const options = process.argv
-console.log(fs)
-console.log(path.join(__dirname, '..', 'src', 'index.js'))
-console.log(require(path.join(__dirname, '..', 'src')))
 automagical()
 
 // checks for available update and returns an instance
-// var defaults = require('lodash.defaults')
 var pkg = JSON.parse(fs.readFileSync(__dirname + '/../package.json'))
 
 // require('update-notifier')({

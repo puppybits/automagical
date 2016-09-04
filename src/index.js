@@ -6,12 +6,12 @@ const debug = require('debug')('magic:index')
 const TARGET = process.env.npm_lifecycle_event;
 process.env.BABEL_ENV = TARGET
 console.log('index')
-module.exports = (() => {
-  
+module.exports = () => {
+
   const settings = args() || {}
   const webpackconfig = generateconfig(settings)
 
   debug(webpackconfig)
 
   server(webpackconfig, settings.port || 8080)
-})()
+}

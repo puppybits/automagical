@@ -56,7 +56,7 @@ function processOptions(wpOpt) {
 	var firstWpOpt = Array.isArray(wpOpt) ? wpOpt[0] : wpOpt;
 
 	var options = wpOpt.devServer || firstWpOpt.devServer || {};
-  console.log(argv)
+  
 	if(argv.host !== "localhost" || !options.host)
 		options.host = argv.host;
 

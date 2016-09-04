@@ -13,7 +13,7 @@ const defaults = {
   webpackconfig:false,
   deploy:false,
   ssr:false,
-  cwd:null, //"../automagical-react",
+  cwd:"../automagical-react",
   packagejson:{version:'0', devDependecies:[], dependencies:[], name:''}
 }
 
@@ -24,13 +24,9 @@ module.exports = () => {
   while(args.length !== 0 && (args[0] || '').indexOf('--') === -1) {
     args.shift()
   }
-
-  args = (args || []).reduce((obj, val, i, arr) => {
-    if (val.indexOf('--') === 0){
-      return Object.assign(obj, {[val.slice(2)]:(arr[i+1] || true)})
-    } else {
-      return obj
-    }
+  args = (args || []).reduce((obj, val) => {
+    let vals = val.slice(2).split('=')
+    return Object.assign(obj, {[vals[0]]:(vals[1] || true)})
   }, {})
 
   debug(`cwd: ${cwd}`)
@@ -39,11 +35,6 @@ module.exports = () => {
     packagejson = require(`${cwd}/package.json`)
   } else {
     debug(`no package found at ${cwd}/package.json`)
-  }
-
-  debug(`${cwd}/${args.webpackconfig}`, fs.existsSync(`${cwd}/${args.webpackconfig}`))
-  if (args.webpackconfig && fs.existsSync(`${cwd}/${args.webpackconfig}`)){
-    args.webpackconfig = require(`${cwd}/${args.webpackconfig}`)
   }
 
   let config = Object.assign(defaults, args, {packagejson, "cwd":cwd})

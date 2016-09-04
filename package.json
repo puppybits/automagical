@@ -23,7 +23,7 @@
     "css-loader": "^0.23.1",
     "express": "^4.14.0",
     "html-webpack-plugin": "^2.22.0",
-    "http-proxy-middleware": "^0.17.0",
+    "http-proxy-middleware": "^0.17.1",
     "isomorphic-fetch": "^2.2.1",
     "json-loader": "^0.5.4",
     "npm-install-webpack-plugin": "^4.0.4",

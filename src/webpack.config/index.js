@@ -42,7 +42,7 @@ module.exports = ({
 
   const baseConfig = {
     entry: {
-      app: [path.resolve(cwd, 'src', 'index.js')], // app.js will be for server-side-
+      app: [path.resolve(cwd, 'src', 'index.js')],
       libs: [],
     },
 
@@ -145,7 +145,7 @@ module.exports = ({
     },
   }
 
-  verbose(options)
+  //verbose(options)
   const modules = [
     require('./build')(options),
     require('./deploy')(options),
@@ -161,7 +161,7 @@ module.exports = ({
     .reduce((config, cmd) => cmd(config), baseConfig)
 
   if (webpackconfig){
-    // TODO: make this smartter. Things like the JS loader need to be matched up and overriden manually
+    // TODO: make this smarter. Things like the JS loader need to be matched up and overriden manually
     config = Object.assign(config, webpackconfig)
   }
 
