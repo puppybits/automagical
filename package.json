@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "automagical",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "(alpha build) Making Webpack as easy as Nodemon",
   "main": "src/index.js",
   "scripts": {
