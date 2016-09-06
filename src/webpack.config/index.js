@@ -16,15 +16,17 @@ module.exports = ({
   ssr=false,
   debug=true,
   cwd="../automagical-react",
+  embed=false,
   packagejson={},
 }) => {
+
 
   const options = {
     commonsChunk: deploy,
     longTermCaching: deploy,
     separateStylesheet: deploy,
     offline: offline,
-    minimize: false,
+    minimize: deploy,
     devtool: deploy ? "source-map": "cheap-module-eval-source-map",
     gzip: deploy,
     stats: deploy,
@@ -37,6 +39,7 @@ module.exports = ({
     proxy: !proxy ? false : {'*': {target:proxy}}, // http://webpack.github.io/docs/webpack-dev-server.html#api
     bower: true,
     packagejson: packagejson,
+    embed:embed,
     cwd:cwd,
   }
 
@@ -150,11 +153,12 @@ module.exports = ({
     require('./build')(options),
     require('./deploy')(options),
     require('./globals')(options),
+    require('./embed')(options),
     require('./hmr')(options),
     require('./html')(options),
     require('./minify')(options),
     require('./offline')(options),
-    require('./ssr')(options)
+    require('./ssr')(options),
   ]
 
   let config = modules

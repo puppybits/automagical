@@ -10,11 +10,14 @@ module.exports = ({
   cwd,
   debug
 }) => (function (config) {
-  if (devServer) {
-    config.output.publicPath = `http${https ? 's':''}://localhost:${port}/`
-    config.output.chunkFilename = "[name]-[id].js"
-    config.devServer.https = https || false
+  if (!devServer) {
+    delete config.devServer
+    return config
   }
+
+  config.output.publicPath = `http${https ? 's':''}://localhost:${port}/`
+  config.output.chunkFilename = "[name]-[id].js"
+  config.devServer.https = https || false
 
   if (proxy) {
     config.devServer.proxy = proxy
